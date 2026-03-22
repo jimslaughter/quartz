@@ -1,14 +1,6 @@
 # Picos, traditional Spanish breadsticks, You can't just eat one.
 
-- ![](https://preview.redd.it/picos-traditional-spanish-breadsticks-crunchy-and-delicious-v0-kld3f873gka61.jpg?width=640&crop=smart&auto=webp&s=48a70d05afa2dcdbc523d35bfc0bcaef6c37dfdf)
-    
-    
-    
-- 
-    
-    ![r/Breadit - Picos, traditional Spanish breadsticks, crunchy and delicious with all kinds of charcuterie, cheese, anything, really. You can't just eat one.](https://preview.redd.it/picos-traditional-spanish-breadsticks-crunchy-and-delicious-v0-alczmf93gka61.jpg?width=640&crop=smart&auto=webp&s=6245ea273306763c184fecb7d1785cf8e5c06fff)
-    
-
+Recipe from Reddit https://www.reddit.com/r/Breadit/comments/kumfah/picos_traditional_spanish_breadsticks_crunchy_and/. by https://www.reddit.com/user/Alzaerin/
 Preferment 100g ap flour with 50ml lukewarm water and 1/4 tsp of active dry yeast. Activate the yeast in the water, add to the flour and knead a bit until you can form a ball. Leave overnight in the fridge in an airtight container.
 
 The next day you'll need 500g ap flour, 200ml lukewarm water, the preferment from the previous day, 50ml of extra virgin olive oil, 2g active dry yeast and 6g of salt
