@@ -6,6 +6,6 @@ Welcome to Jim's Travel Blog.  I created this on Sun 22-Mar-2026 09:50 AM as a t
 
 Here is an image that I hope will show up OK on Cloudflare: 
 
-![[content/JimCathCrop2.jpg|200]]
+![[PXL_20260310_104609754 1.jpg|300]]
 
 I'll see if this publishes on Cloudflare OK.  
