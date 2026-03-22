@@ -28,7 +28,7 @@ Component files are written in `.tsx` files that live in the `quartz/components`
 
 Each component file should have a default export that satisfies the `QuartzComponentConstructor` function signature. It's a function that takes in a single optional parameter `opts` and returns a Quartz Component. The type of the parameters `opts` is defined by the interface `Options` which you as the component creator also decide.
 
-In your component, you can use the values from the configuration option to change the rendering behaviour inside of your component. For example, the component in the code snippet below will not render if the `favouriteNumber` option is below 0.
+In your component, you can use the values from the configuration option to change the rendering behavior inside of your component. For example, the component in the code snippet below will not render if the `favouriteNumber` option is below 0.
 
 ```tsx {11-17}
 interface Options {
