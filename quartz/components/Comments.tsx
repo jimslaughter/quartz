@@ -1,62 +1,32 @@
 import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
-import { classNames } from "../util/lang"
-// @ts-ignore
-import script from "./scripts/comments.inline"
 
-type Options = {
-  provider: "giscus"
-  options: {
-    repo: `${string}/${string}`
-    repoId: string
-    category: string
-    categoryId: string
-    themeUrl?: string
-    lightTheme?: string
-    darkTheme?: string
-    mapping?: "url" | "title" | "og:title" | "specific" | "number" | "pathname"
-    strict?: boolean
-    reactionsEnabled?: boolean
-    inputPosition?: "top" | "bottom"
-    lang?: string
-  }
+const Comments: QuartzComponent = ({ fileData, cfg }: QuartzComponentProps) => {
+  const slug = fileData.slug ?? ""
+  if (slug === "index") return null
+
+  const identifier = slug
+  const reference = (fileData.frontmatter?.title as string) ?? slug
+
+  // Escape single quotes in case the title contains one
+  const safeReference = reference.replace(/'/g, "\\'")
+
+  return (
+    <div class="comments-wrapper" style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--lightgray);">
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+            var commentics_config = {
+              'identifier': '${identifier}',
+              'reference' : '${safeReference}'
+            };
+          `,
+        }}
+      />
+      <script src="//jimslaughter.net/commentics/embed.js" />
+      <div id="commentics"></div>
+    </div>
+  )
 }
 
-function boolToStringBool(b: boolean): string {
-  return b ? "1" : "0"
-}
-
-export default ((opts: Options) => {
-  const Comments: QuartzComponent = ({ displayClass, fileData, cfg }: QuartzComponentProps) => {
-    // check if comments should be displayed according to frontmatter
-    const disableComment: boolean =
-      typeof fileData.frontmatter?.comments !== "undefined" &&
-      (!fileData.frontmatter?.comments || fileData.frontmatter?.comments === "false")
-    if (disableComment) {
-      return <></>
-    }
-
-    return (
-      <div
-        class={classNames(displayClass, "giscus")}
-        data-repo={opts.options.repo}
-        data-repo-id={opts.options.repoId}
-        data-category={opts.options.category}
-        data-category-id={opts.options.categoryId}
-        data-mapping={opts.options.mapping ?? "url"}
-        data-strict={boolToStringBool(opts.options.strict ?? true)}
-        data-reactions-enabled={boolToStringBool(opts.options.reactionsEnabled ?? true)}
-        data-input-position={opts.options.inputPosition ?? "bottom"}
-        data-light-theme={opts.options.lightTheme ?? "light"}
-        data-dark-theme={opts.options.darkTheme ?? "dark"}
-        data-theme-url={
-          opts.options.themeUrl ?? `https://${cfg.baseUrl ?? "example.com"}/static/giscus`
-        }
-        data-lang={opts.options.lang ?? "en"}
-      ></div>
-    )
-  }
-
-  Comments.afterDOMLoaded = script
-
-  return Comments
-}) satisfies QuartzComponentConstructor<Options>
+Comments.displayName = "Comments"
+export default (() => Comments) satisfies QuartzComponentConstructor
