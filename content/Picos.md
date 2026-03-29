@@ -15,4 +15,6 @@ Preheat the oven to 350°F and put a container wirh boilomg water on the lower r
 
 Once they are fully cold store them in an airtight container. They will stay fresh for at least 3 weeks to a month *if you don't eat all of them first
 
+Sun 29-Mar-2026 11:57 AM  After trying these I think I need to lighten them up a bit.  AP flour with some rice flour added or possibly some corn starch or both?  
+
 From Reddit  
