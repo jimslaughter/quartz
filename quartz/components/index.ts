@@ -53,4 +53,3 @@ export {
   ConditionalRender,
   
 }
-export { default as Comments } from "./Comments"
