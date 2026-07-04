@@ -1,28 +1,6 @@
 import { PageLayout, SharedLayout } from "./quartz/cfg"
 import * as Component from "./quartz/components"
-import { Options as ExplorerOptions } from "./quartz/components/ExplorerNode"
-// Uses classic Quartz v4's FileNode API (a.file / a.file.dates),
-// not the newer community-plugin FileTrieNode API (a.isFolder / a.data)
-
-const sortByDate: ExplorerOptions["sortFn"] = (a, b) => {
-  // both are files or both are folders
-  if ((!a.file && !b.file) || (a.file && b.file)) {
-    if (a.file && b.file) {
-      // both files: sort newest first
-      const aDate = a.file.dates?.modified ?? a.file.dates?.created
-      const bDate = b.file.dates?.modified ?? b.file.dates?.created
-      if (aDate && bDate) return bDate.getTime() - aDate.getTime()
-    }
-    // both folders (or files with no date): alphabetical
-    return a.displayName.localeCompare(b.displayName, undefined, {
-      numeric: true,
-      sensitivity: "base",
-    })
-  }
-  // folders before files
-  if (a.file && !b.file) return 1
-  else return -1
-}
+import { Comments } from "./quartz/components"
 
 // components shared across all pages
 export const sharedPageComponents: SharedLayout = {
@@ -30,9 +8,12 @@ export const sharedPageComponents: SharedLayout = {
   header: [],
   afterBody: [
     Component.Comments(),
-  ],
+],
   footer: Component.Footer({
-    links: {},
+    links: {
+      GitHub: "https://github.com/jimslaughter/quartz",
+      "Discord Community": "https://discord.gg/cRFFHYye7t",
+    },
   }),
 }
 
@@ -60,9 +41,10 @@ export const defaultContentPageLayout: PageLayout = {
         { Component: Component.ReaderMode() },
       ],
     }),
-    Component.Explorer({ title: "Posts", sortFn: sortByDate }),
+    Component.Explorer(),
   ],
   right: [
+    Component.Graph(),
     Component.DesktopOnly(Component.TableOfContents()),
     Component.Backlinks(),
   ],
@@ -83,7 +65,7 @@ export const defaultListPageLayout: PageLayout = {
         { Component: Component.Darkmode() },
       ],
     }),
-    Component.Explorer({ title: "Posts", sortFn: sortByDate }),
+    Component.Explorer(),
   ],
   right: [],
 }
