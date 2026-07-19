@@ -1,3 +1,3 @@
-**Homepage**
+# Welcome to Jim's Travel Blog, Iceland Edition
 
-This is the homepage.  Must dress this up a bit.  
+In late July of 2026 we will travel to Iceland for a family trip aboard the Viking cruise line.  
