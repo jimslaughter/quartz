@@ -30,8 +30,7 @@ jobs:
             exit 0
           fi
 
-          mapfile -t NEW_FILES < <(git diff --name-status "$BEFORE" "$AFTER" -- 'content/*.md' 'content/**/*.md' | awk '$1 == "A" {print $2}')
-
+          mapfile -t NEW_FILES < <(git diff --name-status "$BEFORE" "$AFTER" -- 'content/*.md' 'content/**/*.md' | awk -F'\t' '$1 == "A" {print $2}')
           echo "New files found: ${#NEW_FILES[@]}"
           printf '%s\n' "${NEW_FILES[@]}"
 
