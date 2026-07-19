@@ -1,0 +1,122 @@
+name: Notify-New-Quartz-Posts
+
+on:
+  push:
+    branches:
+      - v4
+  workflow_dispatch:
+
+jobs:
+  check-and-notify:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Find newly added posts
+        id: find_new
+        run: |
+          BEFORE="${{ github.event.before }}"
+          AFTER="${{ github.sha }}"
+
+          if [[ "$BEFORE" =~ ^0+$ ]]; then
+            echo "First push detected, nothing to diff against. Skipping."
+            echo "has_new=false" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+
+          mapfile -t NEW_FILES < <(git diff --name-status "$BEFORE" "$AFTER" -- 'content/*.md' 'content/**/*.md' | awk '$1 == "A" {print $2}')
+
+          echo "New files found: ${#NEW_FILES[@]}"
+          printf '%s\n' "${NEW_FILES[@]}"
+
+          echo "[" > new_posts.json
+          FIRST=true
+          for FILE in "${NEW_FILES[@]}"; do
+            case "$FILE" in
+              content/index.md|content/templates/*) continue ;;
+            esac
+
+            TITLE=$(grep -m1 '^title:' "$FILE" | sed 's/^title:[[:space:]]*//; s/^"//; s/"$//')
+            [[ -z "$TITLE" ]] && TITLE=$(basename "$FILE" .md)
+
+            SLUG=$(echo "$FILE" | sed 's|^content/||; s|\.md$||; s/ /-/g')
+            LINK="https://quartz-cml.pages.dev/${SLUG}"
+
+            [[ "$FIRST" == false ]] && echo "," >> new_posts.json
+            FIRST=false
+
+            TITLE_ESC=$(echo "$TITLE" | jq -R .)
+            LINK_ESC=$(echo "$LINK" | jq -R .)
+            cat >> new_posts.json <<EOF
+          { "title": ${TITLE_ESC}, "link": ${LINK_ESC} }
+          EOF
+          done
+          echo "]" >> new_posts.json
+
+          NEW_COUNT=$(jq 'length' new_posts.json)
+          echo "new_count=$NEW_COUNT" >> $GITHUB_OUTPUT
+          echo "has_new=$( [[ $NEW_COUNT -gt 0 ]] && echo true || echo false )" >> $GITHUB_OUTPUT
+          echo "Found $NEW_COUNT new post(s)"
+
+      - name: Build notification email
+        if: steps.find_new.outputs.has_new == 'true'
+        run: |
+          cat > email.html <<'HEADER'
+          <h2>New post on Jim's Iceland Blog!</h2>
+          <ul>
+          HEADER
+          jq -c '.[]' new_posts.json | while read -r POST; do
+            TITLE=$(echo "$POST" | jq -r '.title')
+            LINK=$(echo "$POST" | jq -r '.link')
+            printf '<li><a href="%s"><strong>%s</strong></a></li>\n' "$LINK" "$TITLE" >> email.html
+          done
+          cat >> email.html <<'FOOTER'
+          </ul>
+          <p style="margin-top: 15px;">Visit the blog: <a href="https://quartz-cml.pages.dev/">Jim's Travel Blog</a></p>
+          <p style="color: #666; font-size: 12px; margin-top: 20px;">To unsubscribe, reply to this email with "unsubscribe" in the subject line.</p>
+          FOOTER
+
+      - name: Send email via Resend
+        if: steps.find_new.outputs.has_new == 'true'
+        run: |
+          mapfile -t ALL_SUBSCRIBERS < <(grep -v '^#' subscribers.txt | grep -v '^[[:space:]]*$')
+          TOTAL=${#ALL_SUBSCRIBERS[@]}
+          BATCH_SIZE=49
+          NEW_COUNT=${{ steps.find_new.outputs.new_count }}
+          if [[ "$NEW_COUNT" -eq 1 ]]; then
+            SUBJECT="New post on Jim's Iceland Blog"
+          else
+            SUBJECT="$NEW_COUNT new posts on Jim's Iceland Blog"
+          fi
+          HTML_CONTENT=$(cat email.html)
+          BATCH_NUM=0
+          for (( i=0; i<TOTAL; i+=BATCH_SIZE )); do
+            BATCH_NUM=$((BATCH_NUM + 1))
+            BATCH=("${ALL_SUBSCRIBERS[@]:$i:$BATCH_SIZE}")
+            TO_EMAIL="js@slaughterlaw.com"
+            BCC_EMAILS=$(printf '%s\n' "${BATCH[@]}" | jq -R . | jq -s .)
+            JSON_PAYLOAD=$(jq -n \
+              --arg from "Jim's Iceland Blog <js@slaughterlaw.com>" \
+              --arg to "$TO_EMAIL" \
+              --argjson bcc "$BCC_EMAILS" \
+              --arg subject "$SUBJECT" \
+              --arg html "$HTML_CONTENT" \
+              '{from: $from, to: [$to], bcc: $bcc, subject: $subject, html: $html}')
+            RESPONSE=$(curl -s -w "\n%{http_code}" -X POST https://api.resend.com/emails \
+              -H "Authorization: Bearer ${{ secrets.RESEND_API_KEY }}" \
+              -H "Content-Type: application/json" \
+              -d "$JSON_PAYLOAD")
+            HTTP_CODE=$(echo "$RESPONSE" | tail -1)
+            BODY=$(echo "$RESPONSE" | sed '$d')
+            echo "Batch $BATCH_NUM response ($HTTP_CODE): $BODY"
+            if [[ "$HTTP_CODE" -lt 200 || "$HTTP_CODE" -ge 300 ]]; then
+              echo "::error::Email send failed on batch $BATCH_NUM with status $HTTP_CODE"
+              exit 1
+            fi
+          done
