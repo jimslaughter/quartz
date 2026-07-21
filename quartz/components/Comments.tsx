@@ -22,10 +22,15 @@ Comments.displayName = "Comments"
 
 Comments.afterDOMLoaded = `
 document.addEventListener("nav", () => {
-  const wrapper = document.getElementById("comments-wrapper")
-  if (!wrapper) return
+  console.log("[commentics] nav fired, path:", window.location.pathname)
 
-  // clear out whatever was rendered for the previous page
+  const wrapper = document.getElementById("comments-wrapper")
+  if (!wrapper) {
+    console.log("[commentics] no wrapper found, bailing")
+    return
+  }
+  console.log("[commentics] wrapper found:", wrapper.dataset.cmtxIdentifier)
+
   const target = document.getElementById("commentics")
   if (target) target.innerHTML = ""
 
@@ -33,16 +38,18 @@ document.addEventListener("nav", () => {
     identifier: wrapper.dataset.cmtxIdentifier,
     reference: wrapper.dataset.cmtxReference,
   }
+  console.log("[commentics] config set:", window.commentics_config)
 
-  // remove the old script so a fresh one actually re-executes
   const oldScript = document.getElementById("cmtx-embed-script")
   if (oldScript) oldScript.remove()
 
   const script = document.createElement("script")
   script.id = "cmtx-embed-script"
   script.src = "https://jimslaughter.net/commentics/embed.js"
+  script.onload = () => console.log("[commentics] embed.js loaded successfully")
+  script.onerror = (err) => console.log("[commentics] embed.js FAILED to load", err)
   document.body.appendChild(script)
+  console.log("[commentics] script tag appended")
 })
 `
-
 export default (() => Comments) satisfies QuartzComponentConstructor
