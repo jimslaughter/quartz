@@ -1,18 +1,10 @@
 import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
 import { pathToRoot } from "../util/path"
 
-const Comments: QuartzComponent = ({ fileData, cfg }: QuartzComponentProps) => {
-  // Build the full public URL for this page
-  const baseUrl = cfg.baseUrl?.replace(/\/$/, "") ?? ""
-  const slug = fileData.slug ?? ""
-  const pageUrl = `https://${baseUrl}/${slug}`
-  const encodedUrl = encodeURIComponent(pageUrl)
-  const commenticsUrl = `https://jimslaughter.net/travel/commentics/?page_url=${encodedUrl}`
-
+const Comments: QuartzComponent = (_props: QuartzComponentProps) => {
   return (
     <div class="comments-wrapper" style="margin-top: 2rem;">
       <iframe
-        src={commenticsUrl}
         id="commentics-frame"
         width="100%"
         height="600"
@@ -22,6 +14,18 @@ const Comments: QuartzComponent = ({ fileData, cfg }: QuartzComponentProps) => {
       <script
         dangerouslySetInnerHTML={{
           __html: `
+            function initCommentics() {
+              var frame = document.getElementById("commentics-frame");
+              if (!frame) return;
+              var pageUrl = window.location.origin + window.location.pathname;
+              var encodedUrl = encodeURIComponent(pageUrl);
+              var newSrc = "https://jimslaughter.net/travel/commentics/?page_url=" + encodedUrl;
+              if (frame.getAttribute("src") !== newSrc) {
+                frame.src = newSrc;
+              }
+            }
+            document.addEventListener("nav", initCommentics);
+
             // Auto-resize the Commentics iframe when it signals its content height
             window.addEventListener("message", function(e) {
               if (e.data && typeof e.data === "object" && e.data.commentics_height) {
@@ -35,6 +39,5 @@ const Comments: QuartzComponent = ({ fileData, cfg }: QuartzComponentProps) => {
     </div>
   )
 }
-
 Comments.displayName = "Comments"
 export default (() => Comments) satisfies QuartzComponentConstructor
