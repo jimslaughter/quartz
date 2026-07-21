@@ -1,5 +1,6 @@
 import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
-import { pathToRoot } from "../util/path"
+// @ts-ignore
+import script from "./scripts/comments.inline"
 
 const Comments: QuartzComponent = (_props: QuartzComponentProps) => {
   return (
@@ -11,33 +12,9 @@ const Comments: QuartzComponent = (_props: QuartzComponentProps) => {
         style="border: none; overflow: hidden;"
         scrolling="no"
       />
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `
-            function initCommentics() {
-              var frame = document.getElementById("commentics-frame");
-              if (!frame) return;
-              var pageUrl = window.location.origin + window.location.pathname;
-              var encodedUrl = encodeURIComponent(pageUrl);
-              var newSrc = "https://jimslaughter.net/travel/commentics/?page_url=" + encodedUrl;
-              if (frame.getAttribute("src") !== newSrc) {
-                frame.src = newSrc;
-              }
-            }
-            document.addEventListener("nav", initCommentics);
-
-            // Auto-resize the Commentics iframe when it signals its content height
-            window.addEventListener("message", function(e) {
-              if (e.data && typeof e.data === "object" && e.data.commentics_height) {
-                var frame = document.getElementById("commentics-frame");
-                if (frame) frame.style.height = (e.data.commentics_height + 20) + "px";
-              }
-            }, false);
-          `,
-        }}
-      />
     </div>
   )
 }
 Comments.displayName = "Comments"
+Comments.afterDOMLoaded = script
 export default (() => Comments) satisfies QuartzComponentConstructor
