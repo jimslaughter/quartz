@@ -46,7 +46,13 @@ document.addEventListener("nav", () => {
   const script = document.createElement("script")
   script.id = "cmtx-embed-script"
   script.src = "https://jimslaughter.net/commentics/embed.js"
-  script.onload = () => console.log("[commentics] embed.js loaded successfully")
+  script.onload = () => {
+    console.log("[commentics] embed.js loaded successfully, dispatching synthetic load event")
+    // embed.js only builds the comments iframe inside a window "load" listener.
+    // That event already fired for the real page load, long before this script
+    // was injected via SPA navigation, so we fire a synthetic one to trigger it.
+    window.dispatchEvent(new Event("load"))
+  }
   script.onerror = (err) => console.log("[commentics] embed.js FAILED to load", err)
   document.body.appendChild(script)
   console.log("[commentics] script tag appended")
