@@ -3,7 +3,6 @@ Here is a test post with a couple of our favorite subjects:
 
 ![[01d0c53ce733273597f9b97004d9e1e946ad3d816f.jpg]]
 
-And here's Bean: 
 
 And here's Bean: 
 
