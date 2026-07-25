@@ -8,4 +8,4 @@ And here's Bean:
 
 ![[014a3a1bd1e7b9171938dbaad4698ede7f7bec4c69.jpg|437]]
 *Bean the cutie.*
-And that's that.  So easy to post a photo now.  
+And that's that.  So easy to post a photo now.  The iCloud shared folder set up really works well.  
