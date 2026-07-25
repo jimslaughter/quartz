@@ -1,3 +1,10 @@
 @use "./base.scss";
 
-// put your custom CSS here!
+/// Photo captions: paragraph directly after an image, containing only italic text
+p:has(> img) + p:has(> em:only-child) {
+  margin-top: -1rem;
+  font-size: 0.85em;
+  color: var(--gray);
+  text-align: center;
+}
+
