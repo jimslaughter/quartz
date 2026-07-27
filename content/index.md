@@ -1,5 +1,5 @@
 ---
-title: "Welcome to Jim's Iceland Travel Blog"
+title: Welcome to Jim's Iceland Travel Blog
 date: 2026-07-19
 ---
 

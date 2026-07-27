@@ -1,6 +1,7 @@
 ---
-title: "Day Zero"
+title: Day Zero
 date: 2026-07-20
+draft: false
 ---
 Here we are at Day Zero. Haven't left yet, haven't even packed. This is just to test out the blog to see if everything is working OK.  
 
