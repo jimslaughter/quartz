@@ -1,22 +1,27 @@
 ---
 title: Itinerary
-date: 2026-07-20
+date: 2026-07-26
 draft: false
+comments: false
 ---
-Viking Ship Mars Trip Itinerary:  
 
-MON AUG 03, 2026 Embark in Reykjavik on Viking Mars 05:00 AM
+<img src="/photos/iceland_map.jpg" alt="map of our cruise">
 
-TUE AUG 04, 2026 Reykjavik, Iceland 06:00 PM
 
-WED AUG 05, 2026 Isafjordur, Iceland 08:00 AM 05:00 PM
+**Viking Ship Mars Trip Itinerary:**  
 
-THU AUG 06, 2026 Akureyri, Iceland 08:00 AM 05:00 PM
+MON AUG 03, 2026 Embark in Reykjavik on Viking Mars 
 
-FRI AUG 07, 2026 Seydisfjordur, Iceland 08:00 AM 11:00 PM
+TUE AUG 04, 2026 Reykjavik, Iceland 
 
-SAT AUG 08, 2026 Djupivogur, Iceland 08:00 AM 06:00 PM
+WED AUG 05, 2026 Isafjordur, Iceland 
 
-SUN AUG 09, 2026 Heimaey, Westman Islands, Iceland 10:00 AM 06:00 PM
+THU AUG 06, 2026 Akureyri, Iceland 
 
-MON AUG 10, 2026 Disembark in Reykjavik 05:00 AM 09:00 PM
+FRI AUG 07, 2026 Seydisfjordur, Iceland 
+
+SAT AUG 08, 2026 Djupivogur, Iceland 
+
+SUN AUG 09, 2026 Heimaey, Westman Islands, Iceland 
+
+MON AUG 10, 2026 Disembark in Reykjavik 
