@@ -3,6 +3,7 @@ import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } fro
 const Comments: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
   const slug = fileData.slug ?? ""
   if (slug === "index") return null
+  if (fileData.frontmatter?.comments === false) return null
 
   const identifier = slug
   const reference = (fileData.frontmatter?.title as string) ?? slug
