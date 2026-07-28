@@ -25,3 +25,5 @@ SAT AUG 08, 2026 Djupivogur, Iceland
 SUN AUG 09, 2026 Heimaey, Westman Islands, Iceland 
 
 MON AUG 10, 2026 Disembark in Reykjavik 
+
+
