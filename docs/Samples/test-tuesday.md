@@ -2,7 +2,6 @@
 title: test-tuesday
 draft: false
 date: 2026-07-28
-comments: true
 ---
 This is a test to see how things are working on the blog.  Below is a left float image:
 
