@@ -67,7 +67,7 @@ jobs:
         if: steps.find_new.outputs.has_new == 'true'
         run: |
           cat > email.html <<'HEADER'
-          <h2>New post on Jim's Iceland Blog!</h2>
+          <h2>New post on Jim's Iceland Blog.</h2>
           <ul>
           HEADER
           jq -c '.[]' new_posts.json | while read -r POST; do
