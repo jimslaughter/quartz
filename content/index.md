@@ -8,4 +8,5 @@ Hello again, dear readers! Fresh off the heels of our trip to Spain earlier this
 Some of you may recall that in May of 2024 we took a cruise from Montreal up the St. Lawrence River Estuary, exploring several of the islands north of Quebec, and then down through Maine to Boston. I didn’t dust off my travel blog for that trip (it was kind of spur of the moment). That trip was with all three of my siblings and their spouses. We had such a nice time on that trip that we decided we should do another, so this is it. Come along with us and let’s see what Iceland has to offer!
 
 ![This is a photo of a puffins in Iceland.](puffins-rocks.jpg)
-*Icelandic Puffins*
+*Icelandic Puffins* 
+*Photo by <a href="https://unsplash.com/@yvesalarie?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Yves Alarie</a> on <a href="https://unsplash.com/photos/white-and-black-bird-on-brown-tree-trunk-Os5HONI1xf8?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>*
