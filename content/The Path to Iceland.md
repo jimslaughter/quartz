@@ -1,0 +1,13 @@
+---
+title: The Path to Iceland
+date: 2026-07-30
+---
+Hello again, we're  back on the road, this time headed for Iceland.  So it's time for Jim's travel blog to come out of mothballs. When last you heard from us back in March of this year, we were wending our way from Spain to Portugal.  Unfortunately life got in the way, so I never finished writing about the Portuguese portion of our trip. In brief, southern Portugal is resplendent in its natural beauty.  Mile after mile of oak and olive groves, farms, ranches and tiny villages. The food was even better than in Spain. (Ray and Joe,  I hope your Spanish mother Chickee up in heaven will forgive me for writing that last bit.) We ended our Portuguese leg of the trip with a few days in and around Lisbon, which was a lot of fun and a great history lesson.  Those Portuguese really had the world by the tail back in the 16th century.  Not so much now, but the architectural vestiges are beautiful and evocative.  Much faded glory.  We hope to return someday.  But now on to the present day.  
+
+Today's journey (July 30, 2026) began at our not-so-beloved LAX airport, where the long-promised people mover still isn't open.  It was supposed to open in time for the World Cup, but that didn't happen.  Fortunately LAX was pretty quiet today (a rarity) so we got to our Alaska Airlines to Seattle flight without any delays.  
+
+As I'm writing this, we're on the flight to Seattle, where we'll connect to another Alaska flight which will take us non-stop to Reykjavik. We'll spend a few days in and around Reykjavik, visiting some of the local sites and hopefully enjoying some delicious Icelandic fare.  I've heard the cinnamon rolls are to die for. 
+
+Eventually we'll board the Viking cruise ship *Mars*, which will take us on an eight day cruise all the way around the island.  We'll be pretty close to the Arctic circle when we get to Ísafjörður, our northernmost port of call. So the temperatures along the way should be pretty cool, except when bathing in the naturally warmed waters of the thermal baths, heated by volcanic steam.  Apparently the whole country is heated by steam harvested just beneath the surface of the land.  It should be an interesting trip.  Much more later. And some photos!  
+
+One side note about food:  In the N Terminal at Seatac Airport you can get a very good grilled cheese sandwich at the Beecher's Handmade Cheese stand.  Delicious!  
