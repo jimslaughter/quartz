@@ -25,7 +25,7 @@ A performance and recording space at Harpa:
 Later in the day we met some fellow travelers who told us there was going to be an organ recital at the big church known as Hallgrimskirkja. We knew there was a huge pipe organ at the church, so we decided to go and hear it played.  It was the right decision.  Hearing that huge organ being played in the massive, austere church was a singular experience.  The organist, Gereon Krahforst, who travelled from Germany for this concert, played works by Bach and several Icelandic composers, one of which aurally pictured a volcanic eruption.  When I say the organist pulled out all of the stops I mean that literally!  What a thrill it was to hear.  The encore was very unexpected and welcome: Somewhere Over the Rainbow.   
 
 ![[Church Steeple 2.jpg]]
-*The massive church steeple can be seen from all over Reykjavik. Photo by Scarlett Foller*
+*The massive church steeple can be seen from all over Reykjavik. Photo by Bill MacIver
 
 
 
