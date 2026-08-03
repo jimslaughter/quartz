@@ -1,3 +1,8 @@
+---
+title: The Golden Circle
+draft: false
+date: 2026-08-02
+---
 We started the day with a bit of breakfast at a great bakery not far from our hotel, Sandholt.  The seating at the bakery was tough for five of us so we took to the street to eat our breakfast pastries and coffee.  
 
 ![[013e174156ceb89bed0c6c4b4acb2cec5640f724c2.jpg|561]]

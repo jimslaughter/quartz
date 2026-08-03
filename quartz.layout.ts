@@ -8,12 +8,21 @@ const sortByDate: ExplorerOptions["sortFn"] = (a, b) => {
   // both are files or both are folders
   if ((!a.file && !b.file) || (a.file && b.file)) {
     if (a.file && b.file) {
-      // both files: sort newest first
       const aDate = a.file.dates?.modified ?? a.file.dates?.created
       const bDate = b.file.dates?.modified ?? b.file.dates?.created
-      if (aDate && bDate) return bDate.getTime() - aDate.getTime()
+
+      if (aDate && bDate) {
+        const diff = bDate.getTime() - aDate.getTime()
+        if (diff !== 0) return diff
+        // exact tie on date: fall through to alphabetical below
+      } else if (aDate && !bDate) {
+        return -1 // dated files always sort before undated ones
+      } else if (!aDate && bDate) {
+        return 1
+      }
+      // neither has a date: fall through to alphabetical
     }
-    // both folders (or files with no date): alphabetical
+    // both folders (or files with no date, or tied dates): alphabetical
     return a.displayName.localeCompare(b.displayName, undefined, {
       numeric: true,
       sensitivity: "base",
