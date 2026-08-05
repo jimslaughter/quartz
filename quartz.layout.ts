@@ -8,13 +8,25 @@ const sortByDate: ExplorerOptions["sortFn"] = (a, b) => {
   // both are files or both are folders
   if ((!a.file && !b.file) || (a.file && b.file)) {
     if (a.file && b.file) {
-      const aDate = a.file.dates?.modified ?? a.file.dates?.created
-      const bDate = b.file.dates?.modified ?? b.file.dates?.created
+      const aCreated = a.file.dates?.created
+      const bCreated = b.file.dates?.created
+      const aModified = a.file.dates?.modified
+      const bModified = b.file.dates?.modified
+
+      const aDate = aCreated ?? aModified
+      const bDate = bCreated ?? bModified
 
       if (aDate && bDate) {
         const diff = bDate.getTime() - aDate.getTime()
         if (diff !== 0) return diff
-        // exact tie on date: fall through to alphabetical below
+        // tied on created date (likely same calendar day, no time set) —
+        // use the git-derived modified timestamp as a tiebreaker, since
+        // it has full time-of-day precision reflecting publish order
+        if (aModified && bModified) {
+          const modDiff = bModified.getTime() - aModified.getTime()
+          if (modDiff !== 0) return modDiff
+        }
+        // still tied: fall through to alphabetical below
       } else if (aDate && !bDate) {
         return -1 // dated files always sort before undated ones
       } else if (!aDate && bDate) {
