@@ -106,7 +106,7 @@ jobs:
               --argjson bcc "$BCC_EMAILS" \
               --arg subject "$SUBJECT" \
               --arg html "$HTML_CONTENT" \
-              '{from: $from, to: [$to], bcc: $bcc, subject: $subject, html: $html}')
+              '{from: $from, to: [$to], bcc: $bcc, subject: $subject, html: $html, scheduled_at: "in 2 min"}')
             RESPONSE=$(curl -s -w "\n%{http_code}" -X POST https://api.resend.com/emails \
               -H "Authorization: Bearer ${{ secrets.RESEND_API_KEY }}" \
               -H "Content-Type: application/json" \
