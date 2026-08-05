@@ -1,22 +1,41 @@
 import { PageLayout, SharedLayout } from "./quartz/cfg"
 import * as Component from "./quartz/components"
 import { Options as ExplorerOptions } from "./quartz/components/ExplorerNode"
-// Uses the current FileTrieNode API (a.isFolder / a.data),
-// where a.data is ContentDetails and a.data.date arrives as an
-// ISO string over JSON, so it must be re-wrapped in `new Date(...)`
-// before comparing.
+// Uses classic Quartz v4's FileNode API (a.file / a.file.dates),
+// not the newer community-plugin FileTrieNode API (a.isFolder / a.data)
 
 const sortByDate: ExplorerOptions["sortFn"] = (a, b) => {
+  // TEMP DEBUG — remove after troubleshooting
+  console.log(
+    "SORT DEBUG:",
+    a.displayName,
+    JSON.stringify(a.file?.dates),
+    "vs",
+    b.displayName,
+    JSON.stringify(b.file?.dates),
+  )
   // both are files or both are folders
-  if ((!a.isFolder && !b.isFolder) || (a.isFolder && b.isFolder)) {
-    if (!a.isFolder && !b.isFolder) {
-      const aDate = a.data?.date ? new Date(a.data.date) : undefined
-      const bDate = b.data?.date ? new Date(b.data.date) : undefined
+  if ((!a.file && !b.file) || (a.file && b.file)) {
+    if (a.file && b.file) {
+      const aCreated = a.file.dates?.created
+      const bCreated = b.file.dates?.created
+      const aModified = a.file.dates?.modified
+      const bModified = b.file.dates?.modified
+
+      const aDate = aCreated ?? aModified
+      const bDate = bCreated ?? bModified
 
       if (aDate && bDate) {
         const diff = bDate.getTime() - aDate.getTime()
         if (diff !== 0) return diff
-        // exact tie on date: fall through to alphabetical below
+        // tied on created date (likely same calendar day, no time set) —
+        // use the git-derived modified timestamp as a tiebreaker, since
+        // it has full time-of-day precision reflecting publish order
+        if (aModified && bModified) {
+          const modDiff = bModified.getTime() - aModified.getTime()
+          if (modDiff !== 0) return modDiff
+        }
+        // still tied: fall through to alphabetical below
       } else if (aDate && !bDate) {
         return -1 // dated files always sort before undated ones
       } else if (!aDate && bDate) {
@@ -31,7 +50,7 @@ const sortByDate: ExplorerOptions["sortFn"] = (a, b) => {
     })
   }
   // folders before files
-  if (!a.isFolder && b.isFolder) return 1
+  if (a.file && !b.file) return 1
   else return -1
 }
 
