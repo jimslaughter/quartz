@@ -23,11 +23,11 @@ Our stateroom is quite comfortable.
 
 There is a nice veranda and a really nice bathroom with a large shower and a heated floor.  A large shower is a bonus in the cruise world, where space is at a premium, and the shower is sometimes uncomfortably small.  After getting unpacked, we walked up to the Explorer Bar on the 7th level at the bow of the boat where there was a guitarist serenading the guests with 1970s songs.  Most of the audience probably knew these songs from when they were first played on the radio.  
 
-Pretty soon it was time for dinner so we headed to The Restaurant, which is the main dining facility on the ship. Our group of with was accommodated quite well with a large round window table at the aft.  Our waiter Gede was super friendly and made a few recommendations from the menu. I got the shrimp and scallops entree, served with vegetables and rice.  For dessert it was chocolate cake with chocolate sauce. After dinner the section maître'd Jeffrey entertained us with a preview of some of the sights we will be seeing during our cruise.  
+Pretty soon it was time for dinner so we headed to The Restaurant, which is the main dining facility on the ship. Our group of eight was accommodated quite well with a large round window table at the aft.  Our waiter Gede was super friendly and made a few recommendations from the menu. I got the shrimp and scallops entree, served with vegetables and rice.  For dessert it was chocolate cake with chocolate sauce. After dinner the section maître'd Jeffrey entertained us with a preview of some of the sights we will be seeing during our cruise.  
 
 
 ![[Pasted image 20260805022101.png]]
-*From left: Noree, Cath, Gail, Don, Sheila, me, Bill, Tom*
+*From left: Noreen, Cath, Gail, Don, Sheila, me, Bill, Tom*
 
 Cath, Bill and I were scheduled for a visit to a glacier early the next morning so we got to bed early.
 All in all, the ship seems great, and the day was a great start to our cruise.  
