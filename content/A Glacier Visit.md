@@ -14,7 +14,7 @@ These vehicles were made in Germany during the 1980s for the purpose of carrying
 
 Our guide told us that at its thickest point the glacier is up to 2,000 feet thick. They have been building the tunnel since 2015, refining and extending it over that time.  Since the glacier is always changing it is necessary to keep revising the tunnel to meet the changes in the glacier.  
 
-We entered the glacier through a large tube (visible in front of the truck above).  We descended about 20 feet to a room where we were fitted with crampons (spikes for under our shoes).
+We entered the glacier through a large tube (visible in front of the truck above).  We descended about 20 feet to a room where we were fitted with crampons (spikes for under our boots).
 ![[Pasted image 20260805094634.png]]
 
 Once fitted we began our descent into the glacier.  It was an otherworldly experience.  Here are a few photos: 
@@ -25,7 +25,18 @@ Once fitted we began our descent into the glacier.  It was an otherworldly exper
 
 ![[018e7eb477303ab47a2c8656e61dc69754eabf065d.jpg]]
 
-We finally arrived in a small ice room where there were benches and a big flower heart.  (Somehow we forgot to photograph it!)  We were told that several people have gotten married here.  However one bride wasn't able to descend because she was wearing high heels and the crampons didn't fit.  
+![[01118326008f9a336ce38b8841509ae86e28248df3.jpg]]
+*Bill, me, Cath and our guide.*
+
+![[017ddbfcf6c5f7b080e71e1c8bb61219b10e98b075.jpg]]
+
+
+
+
+We finally arrived in a small ice room where there were benches and a big flower heart.  
+![[018b299950fbf969785f4eedde8a37b5b0999706ca.jpg|665]]
+
+We were told that several people have gotten married here.  However one bride wasn't able to descend because she was wearing high heels and the crampons didn't fit.  
 
 The tour lasted probably 45 minutes or so.  We eventually circled around toward the entrance, removed our crampons and ascended to the daylight.  It was a good adventure.  The day was magnificent. Not a cloud in the bright blue sky.  We descended in the space vehicle in good order and even got into a bit of a race with another moon vehicle that was descending at the same time we were.  It took us about 2 hours to get back to the ship, just in time for departure to Ísafjörður and dinner.  We got our same Table No 102 with our same waiter Gede, and I ate shrimp again.  I must branch out!  
 ![[Pasted image 20260805100542.png|475]]
